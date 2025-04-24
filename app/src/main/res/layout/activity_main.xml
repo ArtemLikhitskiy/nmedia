@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/common_spacing"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <ImageView
         android:id="@+id/avatar"
@@ -123,7 +123,7 @@
         app:srcCompat="@drawable/ic_share_16" />
 
     <TextView
-        android:id="@+id/repostNumber"
+        android:id="@+id/repostCount"
         android:layout_width="0dp"
         android:layout_height="18dp"
         android:layout_marginStart="5dp"
@@ -144,12 +144,12 @@
         android:layout_marginBottom="@dimen/common_spacing"
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_menu"
-        app:layout_constraintEnd_toStartOf="@id/viewsNumber"
+        app:layout_constraintEnd_toStartOf="@id/viewsCount"
         app:layout_constraintTop_toTopOf="@id/barrierSecond"
         app:srcCompat="@drawable/eye_16" />
 
     <TextView
-        android:id="@+id/viewsNumber"
+        android:id="@+id/viewsCount"
         android:layout_width="0dp"
         android:layout_height="18dp"
         android:layout_marginTop="@dimen/common_spacing"

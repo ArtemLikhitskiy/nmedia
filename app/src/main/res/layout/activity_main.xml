@@ -86,27 +86,27 @@
         app:constraint_referenced_ids="content" />
 
     <ImageButton
-        android:id="@+id/heart"
+        android:id="@+id/like"
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginTop="@dimen/common_spacing"
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_menu"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/heartText"
-        app:layout_constraintTop_toTopOf="@id/barrierSecond"
-        app:srcCompat="@drawable/heart_16" />
+        app:layout_constraintEnd_toStartOf="@id/likeCount"
+        app:layout_constraintTop_toBottomOf="@id/barrierSecond"
+        app:srcCompat="@drawable/ic_like_16" />
 
     <TextView
-        android:id="@+id/heartText"
+        android:id="@+id/likeCount"
         android:layout_width="0dp"
         android:layout_height="18dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="@dimen/common_spacing"
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginBottom="@dimen/common_spacing"
-        app:layout_constraintStart_toEndOf="@id/heart"
-        app:layout_constraintTop_toTopOf="@id/barrierSecond"
+        app:layout_constraintStart_toEndOf="@id/like"
+        app:layout_constraintTop_toBottomOf="@id/barrierSecond"
         tools:text="@sample/posts.json/data/likesCount" />
 
 
@@ -118,12 +118,12 @@
         android:layout_marginStart="@dimen/common_spacing"
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_menu"
-        app:layout_constraintStart_toEndOf="@id/heartText"
-        app:layout_constraintTop_toTopOf="@id/barrierSecond"
-        app:srcCompat="@drawable/share_nodes_16" />
+        app:layout_constraintStart_toEndOf="@id/likeCount"
+        app:layout_constraintTop_toBottomOf="@id/barrierSecond"
+        app:srcCompat="@drawable/ic_share_16" />
 
     <TextView
-        android:id="@+id/repostText"
+        android:id="@+id/repostNumber"
         android:layout_width="0dp"
         android:layout_height="18dp"
         android:layout_marginStart="5dp"
@@ -131,7 +131,7 @@
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginBottom="@dimen/common_spacing"
         app:layout_constraintStart_toEndOf="@id/repost"
-        app:layout_constraintTop_toTopOf="@id/barrierSecond"
+        app:layout_constraintTop_toBottomOf="@id/barrierSecond"
         tools:text="@sample/posts.json/data/repostsCount" />
 
 
@@ -144,12 +144,12 @@
         android:layout_marginBottom="@dimen/common_spacing"
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_menu"
-        app:layout_constraintEnd_toStartOf="@id/viewsText"
+        app:layout_constraintEnd_toStartOf="@id/viewsNumber"
         app:layout_constraintTop_toTopOf="@id/barrierSecond"
         app:srcCompat="@drawable/eye_16" />
 
     <TextView
-        android:id="@+id/viewsText"
+        android:id="@+id/viewsNumber"
         android:layout_width="0dp"
         android:layout_height="18dp"
         android:layout_marginTop="@dimen/common_spacing"

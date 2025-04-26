@@ -6,9 +6,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import ru.netology.nmedia.R
+import ru.netology.nmedia.adapter.OnLikeListener
+import ru.netology.nmedia.adapter.OnRepostListener
+import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.ActivityMainBinding
-import ru.netology.nmedia.formatNumber
 import ru.netology.nmedia.viewmodel.PostViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -25,27 +26,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         val viewModel: PostViewModel by viewModels()
-        viewModel.data.observe(this) { post ->
-            with(binding) {
-                author.text = post.author
-                published.text = post.published
-                content.text = post.content
-                likeCount.text = formatNumber(post.likes)
-                repostCount.text = formatNumber(post.reposts)
-                viewsCount.text = formatNumber(post.views)
-                like.setImageResource(
-                    if (post.likedByMe) R.drawable.ic_liked_16 else R.drawable.ic_like_16
-                )
-            }
-        }
 
-        with(binding) {
-            like.setOnClickListener {
-                viewModel.like()
+        val adapter = PostsAdapter(
+            onLikeListener =  {
+                viewModel.likeById(it.id)
+            },
+            onRepostListener = {
+                viewModel.repostById(it.id)
             }
-            repost.setOnClickListener {
-                viewModel.repost()
-            }
+        )
+
+        binding.list.adapter = adapter
+        viewModel.data.observe(this) { posts ->
+            adapter.list = posts
         }
     }
 }

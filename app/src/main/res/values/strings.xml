@@ -13,4 +13,9 @@
     <string name="edit_message">Edit Message</string>
     <string name="description_bottom_line_edit" translatable="false" />
     <string name="description_cancel" translatable="false" />
+    <string name="chooser_share_post">Share post</string>
+    <string name="add_post">Add post</string>
+    <string name="empty_post_error">Post is blank</string>
+    <string name="description_background_video" translatable="false" />
+    <string name="description_play" translatable="false" />
 </resources>

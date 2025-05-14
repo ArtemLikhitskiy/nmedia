@@ -1,6 +1,7 @@
 package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
@@ -16,6 +17,7 @@ interface OnInteractionListener {
     fun onEdit(post: Post) {}
     fun onRemove(post: Post) {}
     fun onShare(post: Post) {}
+    fun onVideo(post: Post) {}
 }
 
 class PostsAdapter(
@@ -52,6 +54,12 @@ class PostViewHolder(
                 text = formatNumber(post.likes)
             }
 
+            if (post.video == null) {
+                binding.playVideoGroup.visibility = View.GONE
+            } else {
+                binding.playVideoGroup.visibility = View.VISIBLE
+            }
+
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.options_post)
@@ -59,11 +67,11 @@ class PostViewHolder(
                         when (item.itemId) {
                             R.id.remove -> {
                                 onInteractionListener.onRemove(post)
-                                true
+                                return@setOnMenuItemClickListener true
                             }
                             R.id.edit -> {
                                 onInteractionListener.onEdit(post)
-                                true
+                                return@setOnMenuItemClickListener true
                             }
                             else -> false
                         }
@@ -76,6 +84,12 @@ class PostViewHolder(
             }
             share.setOnClickListener {
                 onInteractionListener.onShare(post)
+            }
+            play.setOnClickListener {
+                onInteractionListener.onVideo(post)
+            }
+            backgroundVideo.setOnClickListener {
+                onInteractionListener.onVideo(post)
             }
         }
     }
@@ -90,5 +104,7 @@ object PostDiffCallback : DiffUtil.ItemCallback<Post>() {
     override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean {
         return oldItem == newItem
     }
+
+    override fun getChangePayload(oldItem: Post, newItem: Post): Any = Unit
 
 }

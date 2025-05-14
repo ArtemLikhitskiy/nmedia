@@ -16,4 +16,6 @@
 
     <dimen name="checkbox_icon_padding">4dp</dimen>
     <dimen name="icon_button_min_size">48dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

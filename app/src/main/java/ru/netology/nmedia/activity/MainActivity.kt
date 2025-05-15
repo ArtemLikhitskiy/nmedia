@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                         change(it)
                         save()
                     }
-                }
+                } ?: viewModel.clearEdit()
             }
 
         val adapter = PostsAdapter(object : OnInteractionListener {
